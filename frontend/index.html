@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown记事本</title>
+    <!-- 本地 Vditor CSS -->
+    <link rel="stylesheet" href="res/vditor/dist/index.css" />
+    <!-- 本地 FontAwesome CSS -->
+    <link rel="stylesheet" href="res/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 登录界面 -->
+    <div id="loginContainer" class="login-container" style="display: none;">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-lock"></i>
+                <h2>Markdown记事本</h2>
+                <p>请输入密码以访问您的笔记</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input type="password" id="passwordInput" placeholder="请输入密码" required>
+                </div>
+                <div class="remember-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberCheckbox">
+                        <span class="checkmark"></span>
+                        记住密码7天
+                    </label>
+                </div>
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    登录
+                </button>
+                <div id="loginError" class="login-error" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 主应用界面 -->
+    <div id="appContainer" class="app-container" style="display: none;">
+        <!-- 左侧边栏 -->
+        <div class="sidebar">
+            <!-- 文件夹部分 -->
+            <div class="folders-section">
+                <div class="section-header">
+                    <h3>文件夹</h3>
+                    <button id="newFolderBtn" class="icon-btn" title="新建文件夹">
+                        <i class="fas fa-folder-plus"></i>
+                    </button>
+                </div>
+                <div id="foldersList" class="folders-list"></div>
+            </div>
+            
+            <!-- 笔记列表部分 -->
+            <div class="notes-section">
+                <div class="section-header">
+                    <h3>笔记</h3>
+                    <button id="newNoteBtn" class="icon-btn" title="新建笔记">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div id="notesList" class="notes-list"></div>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <!-- 顶部工具栏 -->
+            <div class="top-toolbar">
+                <!-- 搜索栏 -->
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="搜索笔记...">
+                </div>
+                
+                <!-- 文件夹选择器 -->
+                <div class="folder-selector" id="folderSelector" style="display: none;">
+                    <label>移动到：</label>
+                    <select id="folderSelect">
+                        <option value="">无文件夹</option>
+                    </select>
+                    <button id="moveNoteBtn" class="btn-primary">移动</button>
+                </div>
+                
+                <!-- 右侧工具栏 -->
+                <div class="toolbar-right">
+                    <!-- 主题切换按钮 -->
+                    <button id="themeToggleBtn" class="icon-btn" title="切换主题">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <!-- 注销按钮 -->
+                    <button id="logoutBtn" class="icon-btn" title="注销">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 编辑器区域 -->
+            <div class="editor-container">
+                <input type="text" id="noteTitle" class="note-title" placeholder="笔记标题">
+                <!-- Vditor 容器 -->
+                <div id="vditor" class="vditor-wrapper"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 本地 Vditor JS -->
+    <script src="res/vditor/dist/index.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

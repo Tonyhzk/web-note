@@ -1,0 +1,629 @@
+/* 全局样式 */ 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+
+/* 登录界面样式 */
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-header i {
+    font-size: 48px;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.login-header h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.login-header p {
+    color: #666;
+    font-size: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    color: #999;
+    z-index: 1;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.remember-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+    background-color: #667eea;
+    border-color: #667eea;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.login-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+.login-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* 暗色主题下的登录界面 */
+[data-theme="dark"] .login-box {
+    background: rgba(33, 37, 41, 0.95);
+    color: #e9ecef;
+}
+
+[data-theme="dark"] .login-header h2 {
+    color: #e9ecef;
+}
+
+[data-theme="dark"] .login-header p {
+    color: #adb5bd;
+}
+
+[data-theme="dark"] .input-group input {
+    background: rgba(52, 58, 64, 0.8);
+    border-color: #495057;
+    color: #e9ecef;
+}
+
+[data-theme="dark"] .input-group input:focus {
+    border-color: #4dabf7;
+    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.1);
+}
+
+[data-theme="dark"] .checkbox-label {
+    color: #adb5bd;
+}
+
+[data-theme="dark"] .checkmark {
+    border-color: #495057;
+}
+
+[data-theme="dark"] .checkbox-label input[type="checkbox"]:checked + .checkmark {
+    background-color: #4dabf7;
+    border-color: #4dabf7;
+}
+
+/* 工具栏右侧样式 */
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 默认亮色主题变量 */
+:root {
+    --primary-color: #0d6efd; 
+    --primary-color-light: #e6f0ff; 
+    --border-color: #dee2e6;
+    --sidebar-bg: #fff;
+    --main-bg: #f8f9fa;
+    --content-bg: #fff;
+    --text-color: #212529;
+    --text-color-secondary: #6c757d;
+    --text-color-note-title: #343a40;
+    --hover-bg: #f1f3f5;
+    --toolbar-bg: #f8f9fa;
+    --input-border-color: #ced4da;
+    --input-focus-shadow: rgba(13, 110, 253, .25);
+}
+/* 暗色主题变量 */
+[data-theme="dark"] {
+    --primary-color: #4dabf7;
+    --primary-color-light: #183149;
+    --border-color: #373A40;
+    --sidebar-bg: #212529;
+    --main-bg: #1c1f23;
+    --content-bg: #25282c;
+    --text-color: #e9ecef;
+    --text-color-secondary: #adb5bd;
+    --text-color-note-title: #f8f9fa;
+    --hover-bg: #343a40;
+    --toolbar-bg: #212529;
+    --input-border-color: #495057;
+    --input-focus-shadow: rgba(77, 171, 247, .25);
+}
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+    background-color: var(--main-bg); 
+    color: var(--text-color); 
+    height: 100vh; 
+    overflow: hidden; 
+    transition: background-color 0.3s, color 0.3s;
+} 
+/* 应用容器 */ 
+.app-container { 
+    display: flex; 
+    height: 100vh; 
+} 
+/* 左侧边栏 */ 
+.sidebar { 
+    width: 300px; 
+    background-color: var(--sidebar-bg); 
+    border-right: 1px solid var(--border-color); 
+    display: flex; 
+    flex-direction: column; 
+    transition: background-color 0.3s, border-color 0.3s;
+} 
+/* 文件夹部分 */ 
+.folders-section { 
+    min-height: 200px; 
+    max-height: 40%; 
+    border-bottom: 1px solid var(--border-color); 
+    display: flex; 
+    flex-direction: column;
+    transition: border-color 0.3s; 
+} 
+.section-header { 
+    padding: 12px 15px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: var(--toolbar-bg); 
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s; 
+} 
+.section-header h3 { 
+    font-size: 13px; 
+    font-weight: 600; 
+    color: var(--text-color-secondary); 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+} 
+.icon-btn { 
+    background: none; 
+    border: none; 
+    color: var(--text-color-secondary); 
+    cursor: pointer; 
+    padding: 5px; 
+    font-size: 16px; 
+    border-radius: 4px; 
+    transition: all 0.2s; 
+} 
+.icon-btn:hover { 
+    background-color: var(--hover-bg); 
+    color: var(--text-color); 
+} 
+.folders-list { 
+    flex: 1; 
+    overflow-y: auto; 
+    padding: 8px; 
+} 
+.folder-item { 
+    padding: 10px; 
+    cursor: pointer; 
+    border-radius: 6px; 
+    margin-bottom: 4px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    transition: background-color 0.2s; 
+} 
+.folder-item:hover { 
+    background-color: var(--hover-bg); 
+} 
+.folder-item.active { 
+    background-color: var(--primary-color-light); 
+    color: var(--primary-color); 
+    font-weight: 500; 
+} 
+.folder-name { 
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+} 
+.folder-actions { 
+    display: none; 
+    gap: 5px; 
+} 
+.folder-item:hover .folder-actions { 
+    display: flex; 
+} 
+.folder-actions .icon-btn { 
+    font-size: 14px; 
+} 
+/* 笔记列表部分 */ 
+.notes-section { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+} 
+.notes-list { 
+    flex: 1; 
+    overflow-y: auto; 
+    padding: 8px; 
+} 
+.no-notes-placeholder { 
+    padding: 20px; 
+    text-align: center; 
+    color: #999; 
+} 
+.note-item { 
+    padding: 10px 12px; 
+    cursor: pointer; 
+    border-radius: 6px; 
+    margin-bottom: 6px; 
+    border-left: 3px solid transparent; 
+    transition: all 0.2s; 
+} 
+.note-item:hover { 
+    background-color: var(--hover-bg); 
+} 
+.note-item.active { 
+    background-color: var(--primary-color-light); 
+    border-left-color: var(--primary-color); 
+} 
+.note-title-text { 
+    font-weight: 500; 
+    margin-bottom: 4px; 
+    color: var(--text-color-note-title); 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+} 
+.note-date { 
+    font-size: 12px; 
+    color: var(--text-color-secondary); 
+} 
+/* 主内容区 */ 
+.main-content { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    background-color: var(--content-bg); 
+    overflow: hidden;
+    transition: background-color 0.3s; 
+} 
+/* 顶部工具栏 */ 
+.top-toolbar { 
+    padding: 10px 15px; 
+    border-bottom: 1px solid var(--border-color); 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 20px; 
+    background-color: var(--toolbar-bg);
+    transition: background-color 0.3s, border-color 0.3s; 
+} 
+/* 搜索栏 */ 
+.search-bar { 
+    flex: 1; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    max-width: 400px; 
+} 
+.search-bar i { 
+    color: #999; 
+} 
+#searchInput { 
+    flex: 1; 
+    padding: 8px 12px; 
+    border: 1px solid var(--input-border-color); 
+    border-radius: 20px; 
+    outline: none; 
+    font-size: 14px; 
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: var(--content-bg);
+    color: var(--text-color);
+} 
+#searchInput:focus { 
+    border-color: var(--primary-color); 
+    box-shadow: 0 0 0 0.2rem var(--input-focus-shadow);
+} 
+/* 文件夹选择器 */ 
+.folder-selector { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+} 
+.folder-selector label { 
+    font-size: 14px; 
+    color: #666; 
+    white-space: nowrap; 
+} 
+#folderSelect { 
+    padding: 6px 12px; 
+    border: 1px solid var(--input-border-color); 
+    border-radius: 4px; 
+    outline: none; 
+    font-size: 14px; 
+    min-width: 150px;
+    background-color: var(--content-bg);
+    color: var(--text-color);
+} 
+#folderSelect:focus { 
+    border-color: var(--primary-color); 
+} 
+.btn-primary { 
+    padding: 6px 16px; 
+    background-color: var(--primary-color); 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    transition: background-color 0.2s; 
+} 
+.btn-primary:hover { 
+    background-color: #0b5ed7; 
+} 
+/* 主题切换器 */
+.theme-switcher {
+    margin-left: auto; /* 将其推到右侧 */
+}
+/* 编辑器容器 */ 
+.editor-container { 
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    padding: 15px; 
+    padding-top: 10px; 
+    overflow: hidden; 
+} 
+.note-title { 
+    font-size: 28px; 
+    font-weight: 600; 
+    border: none; 
+    outline: none; 
+    margin-bottom: 15px; 
+    padding: 10px 5px; 
+    background-color: transparent; 
+    border-bottom: 2px solid transparent; 
+    transition: border-color 0.2s; 
+    width: 100%;
+    color: var(--text-color);
+} 
+.note-title:focus { 
+    border-bottom-color: var(--primary-color); 
+} 
+/* Vditor 编辑器样式 */ 
+.vditor-wrapper { 
+    flex: 1; 
+    border: 1px solid var(--border-color); 
+    border-radius: 6px; 
+    overflow: hidden; /* 确保Vditor在容器内 */ 
+} 
+/* 覆盖Vditor默认样式以更好地融合 */ 
+.vditor { 
+    border: none !important; 
+    border-radius: 6px;
+    background-color: var(--content-bg) !important;
+    color: var(--text-color) !important;
+} 
+.vditor-toolbar { 
+    background-color: var(--toolbar-bg) !important; 
+    padding-left: 5px !important; 
+    padding-right: 5px !important; 
+    border-bottom-color: var(--border-color) !important;
+} 
+.vditor-content { 
+    background-color: var(--content-bg) !important;
+}
+.vditor-preview {
+    background-color: var(--content-bg) !important;
+}
+[data-theme="dark"] .vditor-ir__node--selected {
+    background-color: rgba(77, 171, 247, 0.2);
+}
+[data-theme="dark"] .vditor-sv {
+     border-right: 1px solid var(--border-color);
+}
+[data-theme="dark"] .vditor__button {
+    color: var(--text-color);
+}
+[data-theme="dark"] .vditor__button--current,
+[data-theme="dark"] .vditor__button:hover {
+    background-color: var(--hover-bg);
+}
+/* 响应式设计 */ 
+@media (max-width: 1024px) { 
+    .sidebar { 
+        width: 250px; 
+    } 
+} 
+@media (max-width: 768px) { 
+    .app-container { 
+        flex-direction: column; 
+    } 
+    
+    .sidebar { 
+        width: 100%; 
+        max-height: 40vh; 
+        min-height: 200px; 
+        flex-direction: row; 
+    } 
+    
+    .folders-section, 
+    .notes-section { 
+        flex: 1; 
+        max-height: none; 
+        min-width: 50%; 
+    } 
+    .folders-section { 
+        border-right: 1px solid var(--border-color); 
+        border-bottom: none; 
+    } 
+    
+    .top-toolbar { 
+        flex-wrap: wrap; 
+        gap: 10px; 
+    } 
+    
+    .search-bar, .folder-selector { 
+        width: 100%; 
+        max-width: none; 
+    } 
+    
+    .folder-selector { 
+        justify-content: space-between; 
+    } 
+    .theme-switcher {
+        order: -1; /* 小屏幕下将主题切换器放到最前面 */
+        margin-left: 0;
+    }
+} 
+@media (max-width: 480px) { 
+    .editor-container { 
+        padding: 10px; 
+    } 
+    
+    .note-title { 
+        font-size: 22px; 
+        margin-bottom: 10px; 
+    } 
+    .vditor-toolbar { 
+        overflow-x: auto; /* 允许工具栏水平滚动 */ 
+    } 
+} 
+/* 通用滚动条样式 */ 
+::-webkit-scrollbar { 
+    width: 8px; 
+    height: 8px; 
+} 
+::-webkit-scrollbar-track { 
+    background: #f1f1f1; 
+} 
+::-webkit-scrollbar-thumb { 
+    background: #ccc; 
+    border-radius: 4px; 
+} 
+::-webkit-scrollbar-thumb:hover { 
+    background: #999; 
+}
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #2c313a;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: #555;
+}
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
